@@ -3,7 +3,9 @@ package com.codecool.anarch1986;
 import java.util.Random;
 
 /**
- *
+ *This class is a collector of string arrays.
+ * It has several methods for returning these arrays, or one of their elements.
+ * The application uses these to set the BasicTrait object fields.
  */
 
 public class BasicProperties {
@@ -59,12 +61,19 @@ public class BasicProperties {
         this.faunaList=faunaList;
     }
 
-
+    /**
+     * Returns the wohole terrain array
+     * @return String Array
+     */
 
     public String[] getTerrains() {
         return terrains;
     }
 
+    /**
+     * Randomly chooses an element from the terrain array
+     * @return String
+     */
     public String returnRandomTerrain() {
 
         return terrains[random.nextInt(terrains.length)];

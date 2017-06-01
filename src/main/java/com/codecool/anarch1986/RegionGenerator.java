@@ -15,8 +15,9 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 /**
- * Created by tomi on 2017.05.30..
+ * The main runner of the application. The basis of it is the Spark framework.
  */
+
 public class RegionGenerator {
     static Map params = new HashMap<>();
     static Region region = new Region();

@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Created by tomi on 2017.05.31..
+ * This class writes the Region object fields into a text file, in a human readable form.
  */
 public class RegionWriter {
     static BufferedWriter bw;
