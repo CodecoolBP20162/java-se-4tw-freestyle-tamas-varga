@@ -6,6 +6,9 @@ import spark.ModelAndView;
 import spark.Spark;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
+import javax.servlet.http.HttpServletResponse;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,6 +22,7 @@ import static spark.Spark.post;
  */
 
 public class RegionGenerator {
+    static boolean downloadMode =false;
     static Map params = new HashMap<>();
     static Region region = new Region();
     static BasicProperties basicProperties = new BasicProperties();
@@ -215,6 +219,19 @@ public class RegionGenerator {
                 logger.debug("DEBUG: The regionsDeque contains " + Region.regionsDeque.size() +
                         " elements.");
                 RegionWriter.writeOutRegion(region);
+                logger.debug("DEBUG: region: '" + region.id + "' has been saved to" +
+                        "./src/main/resources/regions/");
+                if (downloadMode) {
+                byte[] bytes = Files.readAllBytes(Paths.get("./src/main/resources/regions/"
+                        + region.id + ".txt"));
+                    HttpServletResponse raw = res.raw();
+                    raw.setContentType("application/force-download");
+                    raw.setHeader(region.id, "text");
+                    raw.getOutputStream().write(bytes);
+                    raw.getOutputStream().flush();
+                    raw.getOutputStream().close();
+                    logger.debug("DEBUG: file offered for download.");
+                }
                 params.clear();
                 region.basicTraits = new BasicTraits();
                 logger.debug("DEBUG: params and region's basic traits cleared.");
@@ -222,8 +239,7 @@ public class RegionGenerator {
                 logger.warn("WARNING: Some region traits are not set! Region is NOT saved!");
             }
             res.redirect("/");
-            return new ThymeleafTemplateEngine().
-                    render(new ModelAndView(params, "index"));
+            return res.raw();
         });
 
     }
