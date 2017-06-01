@@ -3,53 +3,49 @@ package com.codecool.anarch1986;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by tomi on 2017.05.31..
  */
 public class RegionWriter {
+    static BufferedWriter bw;
+    static FileWriter fw;
 
-    public static void writeOutRegion(BasicTraits region) {
-        BufferedWriter bw = null;
-        FileWriter fw = null;
+    public static void writeOutRegion(Region region) {
 
-        try {
-            String content = "The terrain is " + region.terrain + ".\n" +
-                    region.element + " " + region.wrapper + ".\n" +
-                    "The flora is " + region.flora + ".\n" +
-                    "The fauna is " + region.fauna + ".\n";
-
-
-            fw = new FileWriter("./src/main/resources/regions/" +
-                    new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date()) +
-                    "-region.txt");
-            bw = new BufferedWriter(fw);
-            bw.write(content);
-            System.out.println("success");
-
-        } catch (IOException e) {
-            System.out.println("not working");
-            e.printStackTrace();
-
-        } finally {
             try {
+                String content = "The terrain is " + region.basicTraits.terrain + ".\n" +
+                        region.basicTraits.element + " " + region.basicTraits.warper + ".\n" +
+                        "The flora is " + region.basicTraits.flora + ".\n" +
+                        "The fauna is " + region.basicTraits.fauna + ".\n";
 
-                if (bw != null)
-                    bw.close();
 
-                if (fw != null)
-                    fw.close();
+                fw = new FileWriter("./src/main/resources/regions/"
+                        + region.id + ".txt");
+                bw = new BufferedWriter(fw);
+                bw.write(content);
 
-            } catch (IOException ex) {
+            } catch (IOException e) {
+                e.printStackTrace();
 
-                ex.printStackTrace();
+            } finally {
+                try {
+
+                    if (bw != null)
+                        bw.close();
+
+                    if (fw != null)
+                        fw.close();
+
+                } catch (IOException ex) {
+
+                    ex.printStackTrace();
+
+                }
 
             }
 
         }
-
     }
 
-}
+

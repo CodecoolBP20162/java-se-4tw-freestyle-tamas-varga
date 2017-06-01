@@ -29,130 +29,126 @@
             <button class="btn btn-primary" type="button">Randomize All</button>
         </a>
     </div>
-    <form action="/save">
+    <form action="/save" method="post">
         <h2>Basic traits</h2>
-            <div class="row">
-                <div class="col-sm-2">
-                    <div>
-                        <label for="basic terrain">The terrain is...</label>
-                    </div>
-                    <div class="input-group">
-                        <input id="basic terrain" name="basic terrain" required="required"
-                               readonly="readonly" th:value="${terrain}"/>
-                    </div>
-                    <div class="button wrapper">
-                        <a href="/random_terrain">
-                            <button class="btn btn-info" type="button">Random Terrain</button>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose
-                            terrain
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-element" th:each="terr,iterationStatus  : ${terrains}">
-                                <a th:text="${terr}" th:href="@{~/terrain/{path}(path=${terr})}">Terrains</a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <div>
+                    <label for="basic terrain">The terrain is...</label>
                 </div>
-                <div class="col-sm-2">
-                    <div>
-                        <label for="basic element">An element is...</label>
-                    </div>
-                    <div class="input-group">
-                        <input id="basic element" name="basic element" required="required"
-                               readonly="readonly" th:value="${element}"/>
-                    </div>
-                    <div class="button wrapper">
-                        <a href="/random_element">
-                            <button class="btn btn-info" type="button">Random Element</button>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose
-                            element
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-element" th:each="elem,iterationStatus  : ${elements}">
-                                <a th:text="${elem}" th:href="@{~/element/{path}(path=${elem})}">Elements</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="input-group">
+                    <input id="basic terrain" name="basic terrain"
+                           readonly="readonly" th:value="${terrain}" required="required"/>
                 </div>
-                <div class="col-sm-2">
-                    <div>
-                        <label for="wrapper">...Is wrapped this way</label>
-                    </div>
-                    <div class="input-group">
-                        <input id="wrapper" name="wrapper" required="required"
-                               readonly="readonly" th:value="${wrapper}"/>
-                    </div>
-                    <div class="button wrapper">
-                        <a href="/random_way">
-                            <button class="btn btn-info" type="button">Random Way</button>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose Way
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-element" th:each="wrap,iterationStatus  : ${wrappers}">
-                                <a th:text="${wrap}" th:href="@{~/way/{path}(path=${wrap})}">Way</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="button wrapper">
+                    <a href="/random_terrain">
+                        <button class="btn btn-info" type="button">Random Terrain</button>
+                    </a>
                 </div>
-                <div class="col-sm-2">
-                    <div>
-                        <label for="flora">The Flora is...</label>
-                    </div>
-                    <div class="input-group">
-                        <input id="flora" name="flora" required="required"
-                               readonly="readonly" th:value="${flora}"/>
-                    </div>
-                    <div class="button wrapper">
-                        <a href="/random_flora">
-                            <button class="btn btn-info" type="button">Random Flora</button>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose
-                            Flora
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-element" th:each="flor,iterationStatus  : ${floraList}">
-                                <a th:text="${flor}" th:href="@{~/flora/{path}(path=${flor})}">Flora</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div>
-                        <label for="fauna">The Fauna is...</label>
-                    </div>
-                    <div class="input-group">
-                        <input id="fauna" name="fauna" required="required"
-                               readonly="readonly" th:value="${fauna}"/>
-                    </div>
-                    <div class="button wrapper">
-                        <a href="/random_fauna">
-                            <button class="btn btn-info" type="button">Random Fauna</button>
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose
-                            Fauna
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-element" th:each="faun,iterationStatus  : ${faunaList}">
-                                <a th:text="${faun}" th:href="@{~/fauna/{path}(path=${faun})}">Flora</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose terrain
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-element" th:each="terr,iterationStatus  : ${terrains}">
+                            <a th:text="${terr}" th:href="@{~/terrain/{path}(path=${terr})}">Terrains</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <input type="submit" class="submit-button btn btn-success" value="Save"/>
+            <div class="col-sm-2">
+                <div>
+                    <label for="basic element">An element is...</label>
+                </div>
+                <div class="input-group">
+                    <input id="basic element" name="basic element" required="required"
+                           readonly="readonly" th:value="${element}"/>
+                </div>
+                <div class="button wrapper">
+                    <a href="/random_element">
+                        <button class="btn btn-info" type="button">Random Element</button>
+                    </a>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose element
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-element" th:each="elem,iterationStatus  : ${elements}">
+                            <a th:text="${elem}" th:href="@{~/element/{path}(path=${elem})}">Elements</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <label for="warper">...Is warped this way</label>
+                </div>
+                <div class="input-group">
+                    <input id="warper" name="warper" required="required"
+                           readonly="readonly" th:value="${warper}"/>
+                </div>
+                <div class="button wrapper">
+                    <a href="/random_way">
+                        <button class="btn btn-info" type="button">Random Way</button>
+                    </a>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose Way
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-element" th:each="warp,iterationStatus  : ${warpers}">
+                            <a th:text="${warp}" th:href="@{~/way/{path}(path=${warp})}">Way</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <label for="flora">The Flora is...</label>
+                </div>
+                <div class="input-group">
+                    <input id="flora" name="flora" required="required"
+                           readonly="readonly" th:value="${flora}"/>
+                </div>
+                <div class="button wrapper">
+                    <a href="/random_flora">
+                        <button class="btn btn-info" type="button">Random Flora</button>
+                    </a>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose Flora
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-element" th:each="flor,iterationStatus  : ${floraList}">
+                            <a th:text="${flor}" th:href="@{~/flora/{path}(path=${flor})}">Flora</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <label for="fauna">The Fauna is...</label>
+                </div>
+                <div class="input-group">
+                    <input id="fauna" name="fauna" required="required"
+                           readonly="readonly" th:value="${fauna}"/>
+                </div>
+                <div class="button wrapper">
+                    <a href="/random_fauna">
+                        <button class="btn btn-info" type="button">Random Fauna</button>
+                    </a>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose Fauna
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-element" th:each="faun,iterationStatus  : ${faunaList}">
+                            <a th:text="${faun}" th:href="@{~/fauna/{path}(path=${faun})}">Flora</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="submit-button btn btn-success" value="Save"/>
     </form>
 </div>
 </body>
