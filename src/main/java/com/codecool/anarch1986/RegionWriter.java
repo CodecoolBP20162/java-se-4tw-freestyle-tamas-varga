@@ -13,39 +13,39 @@ public class RegionWriter {
 
     public static void writeOutRegion(Region region) {
 
+        try {
+            String content = "The terrain is " + region.basicTraits.terrain + ".\n" +
+                    region.basicTraits.element + " " + region.basicTraits.warper + ".\n" +
+                    "The flora is " + region.basicTraits.flora + ".\n" +
+                    "The fauna is " + region.basicTraits.fauna + ".\n";
+
+
+            fw = new FileWriter("./src/main/resources/regions/"
+                    + region.id + ".txt");
+            bw = new BufferedWriter(fw);
+            bw.write(content);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        } finally {
             try {
-                String content = "The terrain is " + region.basicTraits.terrain + ".\n" +
-                        region.basicTraits.element + " " + region.basicTraits.warper + ".\n" +
-                        "The flora is " + region.basicTraits.flora + ".\n" +
-                        "The fauna is " + region.basicTraits.fauna + ".\n";
 
+                if (bw != null)
+                    bw.close();
 
-                fw = new FileWriter("./src/main/resources/regions/"
-                        + region.id + ".txt");
-                bw = new BufferedWriter(fw);
-                bw.write(content);
+                if (fw != null)
+                    fw.close();
 
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException ex) {
 
-            } finally {
-                try {
-
-                    if (bw != null)
-                        bw.close();
-
-                    if (fw != null)
-                        fw.close();
-
-                } catch (IOException ex) {
-
-                    ex.printStackTrace();
-
-                }
+                ex.printStackTrace();
 
             }
 
         }
+
     }
+}
 
 

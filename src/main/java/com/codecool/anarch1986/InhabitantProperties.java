@@ -9,33 +9,33 @@ public class InhabitantProperties {
 
     private static Random random = new Random();
 
-    String[] basicInspirations={"Ancient Rome or Greece",
+    String[] basicInspirations = {"Ancient Rome or Greece",
             "Historical China or Southeast Asia",
             "Historical India or subcontinental",
             "Historical Japan– Heian, Meiji, Sengoku, etc.",
             "Middle East– Islamic, Pre-Islamic, Golden Age, etc.",
             "Medieval Africa– Dahomey, Ethiopia, Mali, etc.",
-            "Medieval continental Europe or Scandinavia","Pre-Colonial Polynesia",
+            "Medieval continental Europe or Scandinavia", "Pre-Colonial Polynesia",
             "Pre-Columbian New World– Aztecs, Incas, Mayans, etc.",
             "Pre-modern tribal of a region of choice"};
 
-    String [][] rigidityList={{"Frozen.","The society can never change, but only be destroyed."},
+    String[][] rigidityList = {{"Frozen.", "The society can never change, but only be destroyed."},
             {"Variations.", "The culture can change in its details, but will " +
                     "always be fundamentally the same society."},
             {"Changeable.", "They can change as easily or as painfully as " +
                     "any normal Earth culture."},
             {"Flux. The culture will inevitably alter in drastic ways."}};
 
-    String[][] populationList= {{"One household.", "Or even one person"},
+    String[][] populationList = {{"One household.", "Or even one person"},
             {"One clan.", "A few hundred at the most."},
             {"One town.", "A few thousand, sufficient to make a viable population."},
             {"Many towns.", "A few tens of thousands, whether spread out " +
                     "in numerous towns or clustered in a single city."},
-            {"Many cities.","A few hundreds of thousands, sufficient for a " +
+            {"Many cities.", "A few hundreds of thousands, sufficient for a " +
                     "small nation or a great feudal domain."},
             {"A nation.", "A million or more members of the society."}};
 
-    String[][] technologyList= {{"Stone Age.", "The locals are unable even to work metals."},
+    String[][] technologyList = {{"Stone Age.", "The locals are unable even to work metals."},
             {"Bronze Age.", "They have metalworking and muscle-powered devices and tools."},
             {"Renaissance.", "Complex muscle, wind, and water-powered " +
                     "devices are possible, perhaps with crude firearms."},
@@ -71,7 +71,7 @@ public class InhabitantProperties {
             {"Clan against clan", "Real trust only exists within the scope of extended families, castes, or communities."},
             {"All against all", "Any formal organization is just a thin skin over a seething mass of treachery."}};
 
-    String [][] societies = {{"Anarchy.", "The culture recognizes no authority beyond " +
+    String[][] societies = {{"Anarchy.", "The culture recognizes no authority beyond " +
             "brute force and immediate convenience. " +
             "Optionally, they are so cooperative and peaceful as to require no authority."},
             {"Caste leaders.", "Members obey the leader of their occupational or birth caste."},

@@ -11,7 +11,6 @@ public class BasicTraits {
     public String fauna;
 
 
-
 }
 
 
