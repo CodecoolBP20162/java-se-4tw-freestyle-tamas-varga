@@ -226,8 +226,8 @@ public class RegionGenerator {
                 byte[] bytes = Files.readAllBytes(Paths.get("./src/main/resources/regions/"
                         + region.id + ".txt"));
                     HttpServletResponse raw = res.raw();
-                    raw.setContentType("application/force-download");
-                    raw.setHeader(region.id, "text");
+                    raw.setContentType("application/text/force-download");
+                    raw.setHeader("Content-Disposition","attachment; filename="+region.id+".txt");
                     raw.getOutputStream().write(bytes);
                     raw.getOutputStream().flush();
                     raw.getOutputStream().close();

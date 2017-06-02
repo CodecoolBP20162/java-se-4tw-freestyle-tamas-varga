@@ -92,3 +92,7 @@ hs_err_pid*
 .idea/
 /target/
 /java-se-4tw-freestyle-tamas-varga.iml
+/freestyle-app.iml
+freestyle-app.iml
+src/main/resources/logs/
+src/main/resources/regions/
