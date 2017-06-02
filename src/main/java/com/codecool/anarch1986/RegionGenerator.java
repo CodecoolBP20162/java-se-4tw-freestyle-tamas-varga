@@ -22,7 +22,7 @@ import static spark.Spark.post;
  */
 
 public class RegionGenerator {
-    static boolean downloadMode =false;
+    static boolean downloadMode =true;
     static Map params = new HashMap<>();
     static Region region = new Region();
     static BasicProperties basicProperties = new BasicProperties();
@@ -221,6 +221,7 @@ public class RegionGenerator {
                 RegionWriter.writeOutRegion(region);
                 logger.debug("DEBUG: region: '" + region.id + "' has been saved to" +
                         "./src/main/resources/regions/");
+
                 if (downloadMode) {
                 byte[] bytes = Files.readAllBytes(Paths.get("./src/main/resources/regions/"
                         + region.id + ".txt"));

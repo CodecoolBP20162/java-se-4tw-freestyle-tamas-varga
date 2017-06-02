@@ -1,6 +1,7 @@
 package com.codecool.anarch1986;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -19,9 +20,10 @@ public class RegionWriter {
                     "The flora is " + region.basicTraits.flora + ".\n" +
                     "The fauna is " + region.basicTraits.fauna + ".\n";
 
-
-            fw = new FileWriter("./src/main/resources/regions/"
+            File file = new File("./src/main/resources/regions/"
                     + region.id + ".txt");
+            file.getParentFile().mkdirs();
+            fw = new FileWriter(file);
             bw = new BufferedWriter(fw);
             bw.write(content);
 
